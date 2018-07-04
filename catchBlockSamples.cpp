@@ -70,7 +70,7 @@ void resizeBatch(char* filePath) {
 	for (int i = 0; i < number; i++)
 	{
 		Mat src = imread(files[i].c_str());
-		resize(src, src, Size(480, 320));
+		resize(src, src, Size(src.cols / 4, src.rows / 4)); //缩放为原图1/4
 		sprintf_s(imgname, "%s%d%s", "output images\\", i, ".jpg"); //保存的图片名;注意g_filename[]可能溢出
 		imwrite(imgname, src);
 	}
